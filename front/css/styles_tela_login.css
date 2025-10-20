@@ -1,0 +1,48 @@
+/* footer p{
+    text-align: center;
+    color: black;
+} */
+main {
+    text-align: center;
+    padding: 100px;
+    
+}
+
+body {
+    height: 100vh;              /* altura da tela inteira */
+    margin: 0;                  /* remove margem padrão */
+    display: flex;              /* ativa flexbox */
+    justify-content: center;    /* centraliza horizontalmente */
+    align-items: center;        /* centraliza verticalmente */
+    background-color: #0C0058;
+    color: whitesmoke;     /* fundo opcional */
+  }
+  
+.login{
+    /* background-color: #D52D5D;
+    padding: 2px;
+    color: whitesmoke; */
+
+    /* border: 10px #D52D5D; padding: 2px;  */
+    color: whitesmoke;
+    align-items: center;
+    background-color: #d52d5d; /* Cor do conteúdo interno */
+    padding: 10px;           /* Espaço interno do conteúdo */
+    border-radius: 8px;      /* Borda arredondada (opcional) */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra (opcional) */
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+
+.cadastro{
+    color: whitesmoke;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    background-color: #554c8a;
+}
