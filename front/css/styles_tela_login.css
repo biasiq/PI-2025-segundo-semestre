@@ -9,13 +9,13 @@ main {
 }
 
 body {
-    height: 100vh;              /* altura da tela inteira */
-    margin: 0;                  /* remove margem padrão */
-    display: flex;              /* ativa flexbox */
-    justify-content: center;    /* centraliza horizontalmente */
-    align-items: center;        /* centraliza verticalmente */
+    height: 100vh;              
+    margin: 0;                 
+    display: flex;              
+    justify-content: center;    
+    align-items: center;        
     background-color: #0C0058;
-    color: whitesmoke;     /* fundo opcional */
+    color: whitesmoke;     
   }
   
 .login{
@@ -26,10 +26,11 @@ body {
     /* border: 10px #D52D5D; padding: 2px;  */
     color: whitesmoke;
     align-items: center;
-    background-color: #d52d5d; /* Cor do conteúdo interno */
-    padding: 10px;           /* Espaço interno do conteúdo */
-    border-radius: 8px;      /* Borda arredondada (opcional) */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra (opcional) */
+    background-color: #d52d5d; 
+    padding: 10px;           
+    border-radius: 8px;      
+    border-bottom: 0px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
     width: 300px;
     display: flex;
     justify-content: center;
@@ -42,7 +43,21 @@ body {
     color: whitesmoke;
     padding: 10px;
     border-radius: 8px;
+    border-top: 0px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 300px;
     background-color: #554c8a;
+}
+
+/* footer p{
+    text-align: center;
+    display: inline;
+} */
+
+.campo-escrita{
+    border-radius: 20px;
+}
+
+.botao{
+    border-radius: 50px;
 }
