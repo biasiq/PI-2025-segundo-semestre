@@ -1,12 +1,14 @@
-/* pagina principal */
 body{
     background-color: #0c0058;
     color: white;
 }
 
-nav{
-    display: flex;
-    align-items: center;
+.menu-navegacao{
+    background-color: #004aad !important;
+}
+
+.item-menu{
+    color: whitesmoke;
 }
 
 #titulo-principal{
@@ -18,7 +20,6 @@ nav{
 }
 
 #floatingTextarea{
-    /* background-color: ; */
     border-radius: 20px;
     resize: none;
     height: 100px;
@@ -29,18 +30,7 @@ nav{
     border-radius: 50px !important;
 }
 
-/* 
-#campo-imagem{
-    position: fixed;
-    top: 100px !important;
-    right: 300px !important;
-    height: 1200px !important;
-    
-} */
-
 footer p{
     text-align: center;
 }
-
-/* tela login */
 
