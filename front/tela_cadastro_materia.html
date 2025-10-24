@@ -12,10 +12,14 @@
 <body>
     <main>
         <header>
-            <div class="cadastro-materia">
+            <div class="topo">
+                <div class="cadastro-materia">
                 <h1>Cadastro de matérias</h1>
+            </div>
         </header>
-        <section class="container-sm">
+
+        <div class="parte-azul-clara">
+            <section class="container-sm">
             <div class="form-floating">
                 <textarea class="form-control" id="nome-materia"></textarea>
                 <label for="nome-materia">Escreva o nome da matéria: <label>
@@ -24,8 +28,12 @@
                 <textarea class="form-control" id="nome-assunto"></textarea>
                 <label for="nome-materia">Escreva o nome do assunto: <label>
             </div>
-            <button type="button" class="btn btn-primary btn-lg" id="botao-cadastrar">Cadastrar</button>
+            <div class="botao">
+                <button type="button" class="btn btn-primary btn-lg" id="botao-cadastrar">Cadastrar</button>            
+            </div>
+            
         </section>
+        </div>
     </main>
     <footer>
         <p>&copy; Todos os direitos reservados - 2025</p>

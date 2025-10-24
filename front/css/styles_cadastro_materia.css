@@ -1,0 +1,48 @@
+body{
+    /* background-color: #004aad; */
+    background-color: #0c0058;
+    justify-content: center;
+}
+
+.cadastro-materia{
+    text-align: center;
+    padding: 30px;
+    color: white;
+    
+}
+
+footer{
+    text-align: center;
+    color: white;
+}
+
+#botao-cadastrar{
+    justify-content: center;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    border: none;
+}
+
+.botao{
+    justify-content: center;
+    text-align: center;
+    padding: 50px;
+}
+
+.topo{
+    background-color: #d52d5d;
+    margin-top: 110px;
+    margin-right: 250px;
+    margin-left: 250px;
+    border-start-end-radius: 25px;
+}
+
+.parte-azul-clara{
+    justify-content: center;
+    background-color: #554c8a;
+    margin-right: 250px;
+    margin-left: 250px;
+    border-end-start-radius: 25px;
+}

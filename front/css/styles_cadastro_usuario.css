@@ -1,9 +1,14 @@
-body{
+ body{
     background-color: #0C0058;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #cadastrar-usuario{
-    /* padding: 10px; */
+    padding: 10px; 
     color: whitesmoke;
     background-color: #d52d5d;
     text-align: center;
@@ -25,5 +30,5 @@ body{
 .campo-cadastro-usuario{
     border-radius: 50px;
     resize: none;
-}
+} 
 
