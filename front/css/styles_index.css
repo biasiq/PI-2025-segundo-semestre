@@ -30,6 +30,11 @@ body{
     border-radius: 50px !important;
 }
 
+#campo-imagem{
+    width: 500px;
+    height: 300px;
+}
+
 footer p{
     text-align: center;
 }

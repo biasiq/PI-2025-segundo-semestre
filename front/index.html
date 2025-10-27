@@ -16,16 +16,19 @@
             <ul class="nav justify-content-end">
                 <li class="nav-item dropdown d-flex">
                     <!-- colocar no lugar do "#" link para pagina de cadastro matéria e usuario -->
-                    <a class="nav-link dropdown-toggle item-menu" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastrar</a>
+                    <a class="nav-link dropdown-toggle item-menu" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">Cadastrar</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Usuário</a></li>
-                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
                         <li><a class="dropdown-item" href="#">Matéria/Assunto</a></li>
                     </ul>
-                    <li class="nav-item d-flex">
-                        <!-- colocar no ligar do "#" link para página de ver perfil -->
-                        <a class="nav-link item-menu" href="#">Perfil</a> 
-                    </li>
+                <li class="nav-item d-flex">
+                    <!-- colocar no ligar do "#" link para página de ver perfil -->
+                    <a class="nav-link item-menu" href="#">Perfil</a>
+                </li>
                 </li>
             </ul>
         </nav>
@@ -74,11 +77,15 @@
                 <button type="button" class="btn btn-primary btn-lg w-100" id="botao-gerar">Gerar</button>
             </div>
         </section>
-        <aside id="campo-imagem">
-            <div>
+        <div class="position-relative" id="campo-imagem">
+            <!-- <div>
                 <img src="./imagem/download.jpg" alt="imagem teste">
-            </div>
-        </aside>
+            </div> -->
+            <figure class="figure">
+                <img src="./imagens/6.jpg" class="figure-img img-fluid rounded" alt="imagem">
+                <figcaption class="figure-caption">A caption for the above image.</figcaption>
+            </figure>
+        </div>
     </main>
     <footer position-relative position-absolute bottom-0 start-50 translate-middle-x>
         <p>&copy; Todos os direitos reservados - 2025</p>

@@ -20,7 +20,7 @@ footer{
     justify-content: center;
     text-align: center;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 50px;
     color: white;
     border: none;
 }
@@ -36,7 +36,8 @@ footer{
     margin-top: 110px;
     margin-right: 250px;
     margin-left: 250px;
-    border-start-end-radius: 25px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 .parte-azul-clara{
@@ -44,5 +45,11 @@ footer{
     background-color: #554c8a;
     margin-right: 250px;
     margin-left: 250px;
-    border-end-start-radius: 25px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+#nome-materia, #nome-assunto{
+    border-radius: 50px;
+    resize: none;
 }
