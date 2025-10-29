@@ -16,6 +16,8 @@ const db = mysql.createConnection({
     database: process.env.DATABASE
 });
 
+app.use('/auth', require('./routes/auth'));
+
 db.connect((error) => {
     if(error){
         console.log(error)
