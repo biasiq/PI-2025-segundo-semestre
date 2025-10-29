@@ -39,3 +39,6 @@ footer p{
     text-align: center;
 }
 
+.figure{
+    border-image-slice: 30%;
+}
