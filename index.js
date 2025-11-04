@@ -1,12 +1,13 @@
 const express = require("express");
 const mysql = require("mysql2");
 const dotenv = require("dotenv");
+const cors = require("cors");
 
 dotenv.config({ path: './.env'});
 
 const app = express();
 
-// Middleware to parse JSON bodies
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -31,7 +32,6 @@ try {
     console.error('Error loading routes:', error);
 }
 
-// Serve static files from the front directory
 app.use(express.static('front'));
 
 db.connect((error) => {
@@ -42,6 +42,6 @@ db.connect((error) => {
     }
 })
 
-app.listen(5500, () => {
-    console.log("Server started on Port 5500")
+app.listen(3000, () => {
+    console.log("Server started on Port 3000")
 })

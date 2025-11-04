@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const mysql = require('mysql2');
 
-// Database connection
 const db = mysql.createConnection({
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
@@ -10,7 +9,6 @@ const db = mysql.createConnection({
     database: process.env.DATABASE
 });
 
-// Login route
 router.post('/login', (req, res) => {
     const { email, senha } = req.body;
 
@@ -36,7 +34,6 @@ router.post('/login', (req, res) => {
                 });
             }
 
-            // Login successful
             res.status(200).json({
                 message: 'Login realizado com sucesso',
                 user: {

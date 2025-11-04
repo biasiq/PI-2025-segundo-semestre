@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const mysql = require('mysql2');
 
-// Database connection
 const db = mysql.createConnection({
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
@@ -10,18 +9,16 @@ const db = mysql.createConnection({
     database: process.env.DATABASE
 });
 
-// Create a new user
 router.post('/register', async (req, res) => {
     const { nome, email, senha } = req.body;
 
-    // Basic validation
+    //validação
     if (!nome || !email || !senha) {
         return res.status(400).json({
             error: 'Todos os campos são obrigatórios'
         });
     }
 
-    // Check if user already exists
     db.query('SELECT email FROM usuario WHERE email = ?', [email], (error, results) => {
         if (error) {
             console.log(error);
@@ -36,7 +33,6 @@ router.post('/register', async (req, res) => {
             });
         }
 
-        // If email is not registered, create new user
         const query = 'INSERT INTO usuario (nome, email, senha) VALUES (?, ?, ?)';
         
         db.query(query, [nome, email, senha], (error, results) => {

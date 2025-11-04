@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const mysql = require('mysql2');
 
-// Database connection
 const db = mysql.createConnection({
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
@@ -10,11 +9,9 @@ const db = mysql.createConnection({
     database: process.env.DATABASE
 });
 
-// Create a new materia
 router.post('/create', (req, res) => {
     const { nome, descricao, professor } = req.body;
 
-    // Basic validation
     if (!nome || !professor) {
         return res.status(400).json({
             error: 'Nome e professor são campos obrigatórios'

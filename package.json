@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/biasiq/PI-2025-segundo-semestre#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "hbs": "^4.2.0",

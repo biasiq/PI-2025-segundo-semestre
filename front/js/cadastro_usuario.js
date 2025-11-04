@@ -1,4 +1,3 @@
-// Function to handle user registration
 async function handleUserRegistration(event) {
     event.preventDefault();
     console.log('Form submission started');
@@ -10,7 +9,7 @@ async function handleUserRegistration(event) {
     console.log('Form data:', { nome, email });
 
     try {
-        const response = await fetch('/users/register', {
+        const response = await fetch('http://localhost:3000/users/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,7 +25,7 @@ async function handleUserRegistration(event) {
 
         if (response.ok) {
             alert('Usuário cadastrado com sucesso!');
-            window.location.href = '/tela_login.html'; // Redirect to login page
+            window.location.href = 'tela_login.html';
         } else {
             alert(data.error || 'Erro ao cadastrar usuário');
         }
