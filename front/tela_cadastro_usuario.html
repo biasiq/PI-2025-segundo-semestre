@@ -17,35 +17,28 @@
         </header>
         <div class="cadastro">
             <section>
-                <form action="/auth/register" method="POST">
+                <form id="registerForm" onsubmit="handleUserRegistration(event)">
                     <div class="form-floating p-2 justify justify-center">
-                        <textarea class="form-control campo-cadastro-usuario" placeholder="Nome"
-                            id="floatingTextarea"></textarea>
-                        <label for="floatingTextarea">Nome </label>
-                    </div>
-                    <div class="form-floating p-2 justify justify-center">
-                        <textarea class="form-control campo-cadastro-usuario" placeholder="Sobrenome"
-                            id="floatingTextarea"></textarea>
-                        <label for="floatingTextarea">Sobrenome </label>
+                        <input type="text" class="form-control campo-cadastro-usuario" placeholder="Nome"
+                            id="nome" required>
+                        <label for="nome">Nome </label>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Digite o endereço de email a ser cadastrado:
                         </label>
                         <input type="email" class="form-control campo-cadastro-usuario" id="exampleInputEmail1"
-                            aria-describedby="emailHelp">
+                            aria-describedby="emailHelp" required>
                         <div id="emailHelp" class="form-text">Esse email será usado para login no site.</div>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Digite a senha: </label>
-                        <input type="password" class="form-control campo-cadastro-usuario" id="exampleInputPassword1">
+                        <input type="password" class="form-control campo-cadastro-usuario" id="exampleInputPassword1" required>
                     </div>
-                </form>
-                <div>
                     <div class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-primary btn-lg botao"
+                        <button type="submit" class="btn btn-primary btn-lg botao"
                             id="botao-cadastrar">Cadastrar</button>
                     </div>
-                </div>
+                </form>
             </section>
         </div>
     </main>
@@ -62,6 +55,7 @@
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app')
     </script>
+    <script src="js/cadastro_usuario.js"></script>
 </body>
 
 </html>
