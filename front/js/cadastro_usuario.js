@@ -3,8 +3,8 @@ async function handleUserRegistration(event) {
     console.log('Form submission started');
 
     const nome = document.getElementById('nome').value;
-    const email = document.getElementById('exampleInputEmail1').value;
-    const senha = document.getElementById('exampleInputPassword1').value;
+    const email = document.getElementById('emailusuario').value;
+    const senha = document.getElementById('senhausuario').value;
 
     console.log('Form data:', { nome, email });
 
