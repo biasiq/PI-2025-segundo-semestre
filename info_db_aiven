@@ -1,0 +1,7 @@
+.env (aiven) - para funcionar, só criar o ".env" e colocar essas informações.
+
+DATABASE_HOST = policreate-bd-beatrizdesiqueiraf-fcca.f.aivencloud.com
+DATABASE_USER = avnadmin
+DATABASE_PASSWORD = AVNS_lXuGW6_e6rj0t_FRtFa
+DATABASE = policreate
+DATABASE_PORT = 16248
