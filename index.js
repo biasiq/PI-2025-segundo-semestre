@@ -11,9 +11,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//seguinte, essas variaveis de acesso são consideradas sensiveis, ent elas estão em um outro arquivo ".env", que tá no gitignore, eu explico mlr dps, mas de qqlr forma elas
-//mudam de pc pra pc por causa do mysql, inclusive dps a gnt precisa ver se vai usar a nuvem ou n, pq ai essas coisas vão mudar
-
 const db = mysql.createConnection({
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
@@ -22,11 +19,11 @@ const db = mysql.createConnection({
 });
 
 try {
-    app.use('/auth', require('./routes/auth'));
+    app.use('/auth', require('./routes/auth')(db));
     console.log('Auth routes loaded successfully');
-    app.use('/materias', require('./routes/materias'));
+    app.use('/materias', require('./routes/materias')(db));
     console.log('Materias routes loaded successfully');
-    app.use('/users', require('./routes/users'));
+    app.use('/users', require('./routes/users')(db));
     console.log('Users routes loaded successfully');
 } catch (error) {
     console.error('Error loading routes:', error);

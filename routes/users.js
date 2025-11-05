@@ -1,18 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const mysql = require('mysql2');
 
-const db = mysql.createConnection({
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE
-});
-
-router.post('/register', async (req, res) => {
+module.exports = (db) => {
+    router.post('/register', async (req, res) => {
     const { nome, email, senha } = req.body;
 
-    //validação
     if (!nome || !email || !senha) {
         return res.status(400).json({
             error: 'Todos os campos são obrigatórios'
@@ -48,7 +40,8 @@ router.post('/register', async (req, res) => {
                 id_usuario: results.insertId
             });
         });
+        });
     });
-});
-
-module.exports = router;
+    
+    return router;
+};
