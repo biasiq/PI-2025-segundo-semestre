@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poliedro - Gerador de Imagens</title>
+    <title>Policreate - Gerador de Imagens</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/styles_index.css">
@@ -37,34 +37,20 @@
         </header>
         <section>
             <div class="col-md-4 ms-5 me-5">
-                <select class="form-select selecao-materia-assunto" aria-label="Default select example">
-                    <option value="escolha-a-materia">Escolha a matéria: </option>
-                    <option value="fisica">Física</option>
-                    <option value="matematica">Matemática</option>
+                <select id="select-materia" class="form-select selecao-materia-assunto" aria-label="Default select example">
+                    <option value="">Carregando matérias...</option>
+                </select><br>
+            </div>
+            <div class="col-md-4 ms-5 me-5">
+                <select id="select-assunto" class="form-select selecao-materia-assunto" aria-label="Default select example">
+                    <option value="">Escolha uma matéria primeiro</option>
                 </select><br>
             </div>
             <div class="col-md-4 ms-5 me-5">
                 <select class="form-select selecao-materia-assunto" aria-label="Default select example">
-                    <option value="escolha-o-assunto-fis" selected>Escolha o assunto desejado: </option>
-                    <option value="velocidade-media">Velocidade Média</option>
-                    <option value="termodinamica">Termodinamica</option>
-                    <option value="leis-de-newton">Leis de Newton</option>
-                    <option value="eletronica-basica">Eletronica básica</option>
-                    <option value="trabalho">Trabalho</option>
-                    <option value="eletromagnetismo">Eletromagnetismo</option>
-                    <option value="calorimetria">Calorimetria</option>
-                </select><br>
-            </div>
-            <div class="col-md-4 ms-5 me-5">
-                <select class="form-select selecao-materia-assunto" aria-label="Default select example">
-                    <option value="escolha-o-assunto-mat" selected>Escolha o assunto desejado: </option>
-                    <option value="geometria-analitica">Geometria Analitica</option>
-                    <option value="probabilidade">Probabilidade</option>
-                    <option value="funçao-do-1ºgrau">Função do 1°grau</option>
-                    <option value="Funçao-do-2ºgrau">Função do 2°grau</option>
-                    <option value="volume-de-formas-geometricas">Volume de formas geométricas</option>
-                    <option value="graficos">Gráficos</option>
-                    <option value="matematica-financeira">Matemática Financeira</option>
+                    <option value="escolha-o-assunto-mat" selected>Escolha o estilo desejado: </option>
+                    <option value="geometria-analitica">Desenho</option>
+                    <option value="probabilidade">Realista</option>
                 </select><br>
             </div>
             <div class="col-md-4 form-floating m-5 me-5">
@@ -80,7 +66,7 @@
                 <img src="./imagem/download.jpg" alt="imagem teste">
             </div> -->
             <figure class="figure">
-                <img src="./imagens/6.jpg" class="figure-img img-fluid rounded" alt="imagem">
+                <!-- <img src="./imagens/6.jpg" class="figure-img img-fluid rounded" alt="imagem"> -->
                 <figcaption class="figure-caption">A caption for the above image.</figcaption>
             </figure>
         </div>
@@ -98,6 +84,7 @@
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app')
     </script>
+    <script src="js/load_selects.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>

@@ -1,7 +1,7 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
 
-module.exports = function(db) {
+export default function(db) {
     router.post('/login', (req, res) => {
         const { email, senha } = req.body;
 

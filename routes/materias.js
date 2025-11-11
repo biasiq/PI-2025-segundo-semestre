@@ -1,9 +1,7 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
 
-//esse arquivo mudou mto pq eu tinha me baseado na tabela de outro bd, mas agr ta certo (eu acho)
-
-module.exports = function(db) {
+export default function(db) {
     router.post('/create', (req, res) => {
         const { nome } = req.body;
 
@@ -27,6 +25,17 @@ module.exports = function(db) {
                 message: 'Matéria criada com sucesso',
                 id_materia: results.insertId
             });
+        });
+    });
+
+    router.get('/all', (req, res) => {
+        const q = 'SELECT id_materia, nome FROM materia ORDER BY nome';
+        db.query(q, (err, results) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).json({ error: 'Erro ao buscar matérias' });
+            }
+            res.json(results);
         });
     });
 

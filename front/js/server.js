@@ -26,7 +26,7 @@ app.post("/gerar-imagem", async (req, res) => {
 
     res.json({ url: resultado.data[0].url });
   } catch (erro) {
-    console.error('Erro no endpoint /gerar-imagem:', erro); // <== Aqui
+    console.error('Erro no endpoint /gerar-imagem:', erro);
     res.status(500).json({ error: "Erro ao gerar imagem." });
   }
 });
