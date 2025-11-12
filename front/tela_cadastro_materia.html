@@ -22,30 +22,36 @@
         <div class="parte-azul-clara">
             <section class="container-sm">
 
+                <div class="mb-3">
+                    <label class="form-label">Tipo de cadastro</label>
+                    <div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="tipoMateria" id="radio-existente" value="existente">
+                            <label class="form-check-label" for="radio-existente">Matéria existente</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="tipoMateria" id="radio-nova" value="nova" checked>
+                            <label class="form-check-label" for="radio-nova">Nova matéria</label>
+                        </div>
+                    </div>
+                </div>
 
+                <div id="existing-materia-block" class="mb-3" style="display: none;">
+                    <label for="select-existing-materia" class="form-label">Escolha a matéria</label>
+                    <select id="select-existing-materia" class="form-select">
+                        <option value="">Carregando matérias...</option>
+                    </select>
+                </div>
 
                 <div class="form-floating p-2 justify justify-center">
                     <textarea class="form-control nome-materia" placeholder="Nome" id="nome-materia"></textarea>
                     <label for="nome-materia">Escreva o nome da materia: </label>
                 </div>
-                <!-- <div class="form-floating">
-                <textarea class="form-control" id="nome-materia"></textarea>
-                <label for="nome-materia">Escreva o nome da matéria: <label>
-            </div> -->
-
-
-
 
                 <div class="form-floating p-2 justify justify-center">
                     <textarea class="form-control nome-assunto" placeholder="Nome" id="nome-assunto"></textarea>
                     <label for="nome-assunto">Escreva o nome do assunto: </label>
                 </div>
-                <!-- <div class="form-floating">
-                <textarea class="form-control" id="nome-assunto"></textarea>
-                <label for="nome-materia">Escreva o nome do assunto: <label>
-            </div> -->
-
-
 
                 <div class="botao">
                     <button type="button" class="btn btn-primary btn-lg" id="botao-cadastrar">Cadastrar</button>
