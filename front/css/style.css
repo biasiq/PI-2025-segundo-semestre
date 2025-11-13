@@ -1,0 +1,90 @@
+/* body{
+    background-color: #0c0058;
+    color: white;
+}
+
+.menu-navegacao{
+    background-color: #004aad !important;
+}
+
+.item-menu{
+    color: whitesmoke;
+}
+
+#titulo-principal{
+    text-align: center;
+}
+
+.selecao-materia-assunto{
+    border-radius: 50px;
+}
+
+#floatingTextarea{
+    border-radius: 20px;
+    resize: none;
+    height: 100px;
+}
+
+#botao-gerar{ 
+    background-color:#004aad !important;
+    border-radius: 50px !important;
+}
+
+#campo-imagem{
+    width: 500px;
+    height: 300px;
+}
+
+footer p{
+    text-align: center;
+}
+
+.figure{
+    border-image-slice: 30%;
+} */
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    background: white;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 400px;
+    text-align: center;
+  }
+  
+  textarea {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 1em;
+    padding: 0.5em;
+  }
+  
+  button {
+    padding: 0.7em 1.5em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  #imagemContainer img {
+    margin-top: 1em;
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  
