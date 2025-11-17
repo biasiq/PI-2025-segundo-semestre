@@ -1,5 +1,5 @@
 body{
-    background-color: #0C0058;
+    background-color: #2c3e50;
     height: 100vh;
     margin: 0;
     display: flex;
@@ -10,7 +10,7 @@ body{
 #cadastrar-usuario{
     padding: 10px; 
     color: whitesmoke;
-    background-color: #d52d5d;
+    background-color: #3498db;
     text-align: center;
     width: 300px;
     margin: 0;
@@ -20,8 +20,8 @@ body{
 
 .cadastro{
     padding: 8px;
-    background-color: #554c8a;
-    color: whitesmoke;
+    background-color:   whitesmoke;
+    color: black;
     width: 300px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
