@@ -1,5 +1,5 @@
 body{
-    background-color: #2c3e50;
+    background-color: #0c0058;
     height: 100vh;
     margin: 0;
     display: flex;
@@ -10,7 +10,7 @@ body{
 #cadastrar-usuario{
     padding: 10px; 
     color: whitesmoke;
-    background-color: #3498db;
+    background-color: #d52d5d;
     text-align: center;
     width: 300px;
     margin: 0;
