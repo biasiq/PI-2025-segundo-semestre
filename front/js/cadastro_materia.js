@@ -1,156 +1,143 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('botao-cadastrar');
+    const API = 'http://localhost:3000';
 
-  const radioExistente = document.getElementById('radio-existente');
-  const radioNova = document.getElementById('radio-nova');
+    const btn = document.getElementById('botao-cadastrar');
 
-  const existingBlock = document.getElementById('existing-materia-block');
-  const newMateriaBlock = document.getElementById('new-materia-block');
-  const assuntoBlock = document.getElementById('assunto-block');
+    const radioExist = document.getElementById('radio-existente');
+    const radioNova = document.getElementById('radio-nova');
 
-  const selectExisting = document.getElementById('select-existing-materia');
-  const nomeMateriaInput = document.getElementById('nome-materia');
-  const nomeAssuntoInput = document.getElementById('nome-assunto');
+    const blocoSelect = document.getElementById('existing-materia-block');
+    const selectMateria = document.getElementById('select-existing-materia');
 
-  const sanitize = str => str.replace(/[<>]/g, "").trim();
+    const inputMateria = document.getElementById('nome-materia');
+    const inputAssunto = document.getElementById('nome-assunto');
 
-  function updateVisibility() {
-    const existente = radioExistente.checked;
+    carregarMaterias();
+    trocarModo();
 
-    existingBlock.style.display = existente ? 'block' : 'none';
-    newMateriaBlock.style.display = existente ? 'none' : 'block';
+    radioExist.addEventListener('change', trocarModo);
+    radioNova.addEventListener('change', trocarModo);
 
-    assuntoBlock.style.display = 'block';
-  }
-
-  async function loadMaterias() {
-    try {
-      const res = await fetch('http://localhost:3000/materias/all');
-      const materias = await res.json();
-
-      selectExisting.innerHTML = `<option value="">-- Selecione --</option>`;
-      materias.forEach(m => {
-        const opt = document.createElement('option');
-        opt.value = m.id_materia;
-        opt.textContent = m.nome;
-        selectExisting.appendChild(opt);
-      });
-
-    } catch (error) {
-      console.error("Erro ao carregar matérias:", error);
-      selectExisting.innerHTML = `<option value="">Erro ao carregar</option>`;
+    function trocarModo() {
+        const existente = radioExist.checked;
+        blocoSelect.style.display = existente ? 'block' : 'none';
+        inputMateria.closest('.form-floating').style.display = existente ? 'none' : 'block';
     }
-  }
 
-  function validateExistingMateria() {
-    const valid = selectExisting.value !== "";
-    selectExisting.classList.toggle("is-invalid", !valid);
-    return valid;
-  }
+    async function carregarMaterias() {
+        const res = await fetch(`${API}/materias/all`);
+        const lista = await res.json();
 
-  function validateNomeMateria() {
-    if (radioExistente.checked) return true;
-    const valid = nomeMateriaInput.value.trim().length >= 3;
-    nomeMateriaInput.classList.toggle("is-invalid", !valid);
-    return valid;
-  }
+        selectMateria.innerHTML = `<option value="">-- Selecione --</option>`;
+        lista.forEach(m => {
+            const opt = document.createElement('option');
+            opt.value = m.id_materia;
+            opt.textContent = m.nome;
+            selectMateria.appendChild(opt);
+        });
+    }
 
-  function validateNomeAssunto() {
-    if (radioNova.checked && nomeAssuntoInput.value.trim() === "") return true;
-    const valid = nomeAssuntoInput.value.trim().length >= 3;
-    nomeAssuntoInput.classList.toggle("is-invalid", !valid);
-    return valid;
-  }
+    function invalid(el, flag) {
+        el.classList.toggle('is-invalid', flag);
+    }
 
-  updateVisibility();
+    btn.addEventListener('click', async () => {
+        const assunto = inputAssunto.value.trim();
 
-  radioExistente.addEventListener('change', () => {
-    loadMaterias();
-    updateVisibility();
-  });
+        if (assunto.length < 3) {
+            alert("Informe um assunto válido");
+            invalid(inputAssunto, true);
+            return;
+        }
 
-  radioNova.addEventListener('change', updateVisibility);
+        if (radioExist.checked) {
+            const id = selectMateria.value;
+            if (!id) {
+                alert("Selecione uma matéria");
+                invalid(selectMateria, true);
+                return;
+            }
+            await criarAssunto(id, assunto);
+            return;
+        }
 
-  btn.addEventListener('click', async () => {
-    const nomeMateria = sanitize(nomeMateriaInput.value);
-    const nomeAssunto = sanitize(nomeAssuntoInput.value);
+        const materia = inputMateria.value.trim();
+        if (materia.length < 3) {
+            alert("Informe um nome válido para a matéria");
+            invalid(inputMateria, true);
+            return;
+        }
 
-    if (radioExistente.checked) {
+        await criarMateriaEAssunto(materia, assunto);
+    });
 
-      if (!validateExistingMateria() || !validateNomeAssunto()) return;
-
-      try {
-        const res = await fetch('http://localhost:3000/assuntos/create', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            id_materia: Number(selectExisting.value),
-            nome: nomeAssunto
-          })
+    async function criarAssunto(id_materia, nome) {
+        const res = await fetch(`${API}/assuntos/create`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id_materia, nome })
         });
 
         const data = await res.json();
-        if (res.ok) {
-          alert('Assunto cadastrado com sucesso!');
-          nomeAssuntoInput.value = "";
-          selectExisting.value = "";
-        } else {
-          alert(data.error || 'Erro ao cadastrar assunto');
+
+        if (res.status === 409) {
+            alert("Assunto já cadastrado nessa matéria.");
+            invalid(inputAssunto, true);
+            return;
+        }
+        if (!res.ok) {
+            alert(data.error || "Erro ao cadastrar assunto");
+            return;
         }
 
-      } catch (err) {
-        alert('Erro de rede ao inserir assunto.');
-      }
-
-      return;
+        alert("Assunto cadastrado.");
+        inputAssunto.value = "";
     }
 
-    if (!validateNomeMateria() || !validateNomeAssunto()) return;
+    async function criarMateriaEAssunto(nomeMateria, assunto) {
+        const resMat = await fetch(`${API}/materias/create`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ nome: nomeMateria })
+        });
 
-    try {
-      const resMat = await fetch('http://localhost:3000/materias/create', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome: nomeMateria })
-      });
+        const dataMat = await resMat.json();
 
-      const dataMat = await resMat.json();
+        if (resMat.status === 409) {
+            alert("Matéria já existe!");
+            invalid(inputMateria, true);
+            return;
+        }
 
-      if (!resMat.ok) {
-        alert(dataMat.error || "Erro ao criar matéria");
-        return;
-      }
+        if (!resMat.ok) {
+            alert(dataMat.error || "Erro ao criar matéria.");
+            return;
+        }
 
-      const idMateria = dataMat.id_materia;
+        const resAss = await fetch(`${API}/assuntos/create`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                id_materia: dataMat.id_materia,
+                nome: assunto
+            })
+        });
 
-      if (!nomeAssunto) {
-        alert("Matéria criada com sucesso!");
-        nomeMateriaInput.value = "";
-        return;
-      }
+        const dataAss = await resAss.json();
 
-      const resAss = await fetch('http://localhost:3000/assuntos/create', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          id_materia: idMateria,
-          nome: nomeAssunto
-        })
-      });
+        if (resAss.status === 409) {
+            alert("Matéria criada, porém o assunto já existia.");
+        } else if (!resAss.ok) {
+            alert("Matéria criada, mas erro ao criar assunto.");
+        } else {
+            alert("Matéria e assunto cadastrados.");
+        }
 
-      const dataAss = await resAss.json();
+        inputMateria.value = "";
+        inputAssunto.value = "";
+        await carregarMaterias();
 
-      if (resAss.ok) {
-        alert("Matéria e assunto criados com sucesso!");
-      } else {
-        alert(dataAss.error || "A matéria foi criada, mas houve erro ao criar o assunto.");
-      }
-
-      nomeMateriaInput.value = "";
-      nomeAssuntoInput.value = "";
-
-    } catch (error) {
-      alert("Erro de rede, tente novamente.");
+        radioExist.checked = true;
+        trocarModo();
     }
-  });
 });
