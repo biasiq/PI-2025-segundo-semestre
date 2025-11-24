@@ -1,4 +1,4 @@
-console.log("✅ Script carregado com sucesso!");
+console.log("Script carregado com sucesso!");
 
 document.getElementById("gerarBtn").addEventListener("click", async () => {
   
@@ -15,7 +15,6 @@ document.getElementById("gerarBtn").addEventListener("click", async () => {
     return;
   }
 
-  // 🧠 MONTA O PROMPT FINAL COM TODOS OS CAMPOS
   const promptFinal = `
     Gere uma imagem sobre a matéria "${materia}",
     especificamente do assunto "${assunto}".
@@ -23,7 +22,7 @@ document.getElementById("gerarBtn").addEventListener("click", async () => {
     Detalhes adicionais: ${detalhes}.
   `;
 
-  console.log("📌 Prompt enviado:", promptFinal);
+  console.log("Prompt enviado:", promptFinal);
 
   try {
     const resposta = await fetch("http://localhost:3000/gerar-imagem", {
@@ -46,6 +45,6 @@ document.getElementById("gerarBtn").addEventListener("click", async () => {
     }
   } catch (erro) {
     imagemContainer.innerHTML = `<p>Erro na requisição: ${erro.message}</p>`;
-    console.error("❌ Erro:", erro);
+    console.error("Erro:", erro);
   }
 });

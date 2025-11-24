@@ -20,6 +20,7 @@
   "homepage": "https://github.com/biasiq/PI-2025-segundo-semestre#readme",
   "type": "module",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",

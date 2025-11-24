@@ -14,7 +14,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// === 💾 CONFIG DO BANCO DE DADOS ===
 const connectionOptions = {
   host: process.env.DATABASE_HOST,
   user: process.env.DATABASE_USER,
@@ -40,7 +39,6 @@ if (process.env.DATABASE_SSL && process.env.DATABASE_SSL.toLowerCase() === "true
 
 const db = mysql.createConnection(connectionOptions);
 
-// === 🔗 ROTAS DO SISTEMA ===
 try {
   const authRoutes = (await import("./routes/auth.js")).default;
   app.use("/auth", authRoutes(db));
@@ -54,14 +52,13 @@ try {
   const usersRoutes = (await import("./routes/users.js")).default;
   app.use("/users", usersRoutes(db));
 
-  console.log("✅ Rotas do sistema carregadas com sucesso!");
+  console.log("Rotas do sistema carregadas com sucesso!");
 } catch (error) {
-  console.error("❌ Erro ao carregar rotas:", error);
+  console.error("Erro ao carregar rotas:", error);
 }
 
-// === 🧠 ROTA HUGGING FACE ===
 const HUGGINGFACE_API_KEY = process.env.HUGGINGFACE_API_KEY;
-console.log("🔑 Chave carregada?", HUGGINGFACE_API_KEY ? "Sim" : "Não");
+console.log("Chave carregada?", HUGGINGFACE_API_KEY ? "Sim" : "Não");
 
 app.post("/gerar-imagem", async (req, res) => {
   try {
@@ -91,24 +88,21 @@ app.post("/gerar-imagem", async (req, res) => {
     const base64Image = Buffer.from(arrayBuffer).toString("base64");
     res.json({ image: `data:image/png;base64,${base64Image}` });
   } catch (erro) {
-    console.error("❌ Erro no endpoint /gerar-imagem:", erro);
+    console.error("Erro no endpoint /gerar-imagem:", erro);
     res.status(500).json({ error: "Erro ao gerar imagem." });
   }
 });
 
-// === 🌐 FRONT-END ===
 app.use(express.static("front"));
 
-// === 🗄️ CONEXÃO COM BANCO ===
 db.connect((error) => {
   if (error) {
     console.log(error);
   } else {
-    console.log("✅ MySQL Connected");
+    console.log("MySQL Connected");
   }
 });
 
-// === 🚀 SERVIDOR ===
 app.listen(3000, () => {
-  console.log("✅ Servidor rodando em http://localhost:3000");
+  console.log("Servidor rodando em http://localhost:3000");
 });
