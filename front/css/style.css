@@ -102,3 +102,7 @@ body {
     border-radius: 6px;
     object-fit: contain; /* Garante que a imagem inteira seja visível */
 }
+
+#prompt{
+    resize: none;
+}

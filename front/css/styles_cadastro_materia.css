@@ -45,7 +45,7 @@ footer {
 }
 
 .parte-azul-clara {
-    background-color:   whitesmoke;
+    background-color:whitesmoke;
     margin: 0 auto;
     width: 400px;
     border-bottom-left-radius: 8px;
@@ -55,15 +55,23 @@ footer {
 
 
 #nome-materia, #nome-assunto {
-    width: 90%;
+    width: 100%;
     border-radius: 50px;
     padding: 5px;
     margin: 5px 0;
     border: none;
     outline: none;
     text-align: center;
+    resize: none;
 }
 #assunto-block{
     text-align: center;
 }
 
+#nome-materia-nova, #escolha-materia, #tipo-cadastro{
+    text-align: center;
+}
+
+#select-existing-materia{
+    border-radius: 50px;
+}
