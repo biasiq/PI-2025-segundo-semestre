@@ -64,11 +64,11 @@ body {
 
 .custom-btn-gerar {
     width: 100%;
-    padding: 15px;
+    padding: 10px 20px;
     background-color: #004AAd; /* Azul primário para o botão */
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     font-size: 1.1em;
     cursor: pointer;
     transition: background-color 0.3s ease;

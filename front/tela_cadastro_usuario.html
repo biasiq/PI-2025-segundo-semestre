@@ -18,17 +18,23 @@
         <div class="cadastro">
             <section>
                 <form id="registerForm" onsubmit="handleUserRegistration(event)">
-                    <div class="form-floating p-2 justify justify-center">
-                        <input type="text" class="form-control campo-cadastro-usuario" placeholder="Nome"
+                    <!-- <div class="form-floating p-2 justify justify-center">
+                        <input type="text" class="campo-cadastro-usuario" placeholder="Nome"
                             id="nome" required>
                         <label for="nome">Nome</label>
-                    </div>
+                    </div> -->
                     <div class="mb-3">
-                        <label for="emailusuario" class="form-label">Digite o endereço de email a ser cadastrado:
+                        <label for="nome" class="form-label">Digite o nome:
+                        </label>
+                        <input type="text" class="form-control campo-cadastro-usuario" id="nome" required>
+                    </div>
+
+                
+                    <div class="mb-3">
+                        <label for="emailusuario" class="form-label">Digite o endereço de email:
                         </label>
                         <input type="email" class="form-control campo-cadastro-usuario" id="emailusuario"
                             aria-describedby="emailHelp" required>
-                        <div id="emailHelp" class="form-text">Esse email será usado para login no site.</div>
                     </div>
                     <div class="mb-3">
                         <label for="senhausuario" class="form-label">Digite a senha: </label>

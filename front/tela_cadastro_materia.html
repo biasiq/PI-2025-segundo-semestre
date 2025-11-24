@@ -52,11 +52,20 @@
                     <div class="invalid-feedback">A matéria deve ter ao menos 3 caracteres.</div>
                 </div>
 
-                <div id="assunto-block" class="form-floating p-2">
+                <!-- <div id="assunto-block" class="form-floating p-2">
                     <textarea class="form-control" id="nome-assunto"></textarea>
                     <label for="nome-assunto">Nome do assunto</label>
                     <div class="invalid-feedback">O assunto deve ter ao menos 3 caracteres.</div>
-                </div>
+                </div> -->
+
+                <div id="assunto-block" class="mb-3">
+                        <label for="nome" class="form-label">Digite o nome do assunto:
+                        </label>
+                        <input type="textarea" class="form-control" id="nome-assunto" required>
+                        <div class="invalid-feedback">O assunto deve ter ao menos 3 caracteres.</div>
+                    </div>
+
+
 
                 <div class="botao">
                     <button type="button" class="btn btn-primary btn-lg" id="botao-cadastrar">Cadastrar</button>
