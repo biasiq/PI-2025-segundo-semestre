@@ -1,4 +1,4 @@
-body { 
+/* body { 
     background-color: #0c0058;
     display: flex;
     justify-content: center;
@@ -74,4 +74,114 @@ footer {
 
 #select-existing-materia{
     border-radius: 50px;
+} */
+
+
+/* ====== ESTILOS GERAIS ====== */
+body { 
+    background-color: #0c0058;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Título do topo */
+.topo {
+    background-color: #d52d5d;
+    width: 100%;
+    max-width: 420px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    padding: 18px;
+    text-align: center;
+}
+
+.cadastro-materia {
+    text-align: center;
+    color: white;
+    padding: 5px;
+}
+
+.parte-azul-clara {
+    background-color: whitesmoke;
+    width: 100%;
+    max-width: 420px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 25px;
+}
+
+/* Inputs */
+#nome-materia,
+#nome-assunto,
+#select-existing-materia {
+    width: 100%;
+    border-radius: 50px;
+    padding: 10px 15px;
+    margin: 8px 0;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+/* Centralização de textos */
+#assunto-block,
+#nome-materia-nova,
+#escolha-materia,
+#tipo-cadastro {
+    text-align: center;
+}
+
+/* Botão */
+.botao {
+    text-align: center;
+    padding: 20px 0;
+}
+
+#botao-cadastrar {
+    padding: 12px 25px;
+    border-radius: 50px;
+    color: white;
+    border: none;
+    background-color: #3498db;
+    cursor: pointer;
+    width: 100%;
+    max-width: 250px;
+}
+
+#botao-cadastrar:hover {
+    background-color: #0c0058;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+/* ====== RESPONSIVIDADE ====== */
+@media (max-width: 480px) {
+    .topo {
+        padding: 15px;
+    }
+
+    .parte-azul-clara {
+        padding: 20px;
+    }
+
+    #botao-cadastrar {
+        padding: 14px;
+        font-size: 1rem;
+    }
+
+    #nome-materia,
+    #nome-assunto {
+        padding: 8px 12px;
+        font-size: 0.95rem;
+    }
 }

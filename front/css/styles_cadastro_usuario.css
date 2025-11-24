@@ -20,7 +20,7 @@ body{
 
 .cadastro{
     padding: 8px;
-    background-color:   whitesmoke;
+    background-color:   #f5f5f5;
     color: black;
     width: 300px;
     border-bottom-left-radius: 8px;
@@ -31,8 +31,9 @@ body{
 .campo-cadastro-usuario{
     border-radius: 50px;
     resize: none;
+    color: #f5f5f1;
 } 
 
 .botao{
     border-radius: 50px;
-}
+} 
