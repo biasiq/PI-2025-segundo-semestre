@@ -101,9 +101,9 @@ main {
 
 /* ====== CARD ====== */
 .cadastro {
-    color: black;
+    color: white;
     padding: 20px;
-    background-color: whitesmoke;
+    background-color: #554C8A;
     width: 100%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
